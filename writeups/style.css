@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+:root {
+    background-color: #1A2755;
+}
+
+
+* {
+    color: whitesmoke;
+    font-family: "Play",cursive;
+}
+
+pre {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: #0a0827;
+    height: 8vh;
+    display: flex;
+    border-bottom: 2px solid white;
+}
+
+.navbar a {
+    color: white;
+    padding: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.navbar-item {
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Navbar End */
+
+/* Profile Sidebar */
+.sidebar {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: #111936;
+    border-right: 2px solid white;
+    z-index: 1;
+    font-family: 'Kalam', cursive;
+    padding-top: 5%;
+}
+
+.container a {
+    text-decoration: none;
+}
+
+
+.sidebar-content {
+    color: white;
+}
+
+.social-media {
+    width: 20px;
+    height: 20px;
+    padding-right: 2px;
+}
+/* Profile Sidebar end */
+
+
+/* Content Configuration ( Center ) */
+.content {
+    padding-right: 15%;
+    padding-left: 20%;
+    background-color: #1A2755;
+}
+
+.content-main {
+    margin-top: 10%;
+}
+/* Content Configuration End */
+
+/* Title Configuration */
+.event-title {
+    color: white;
+    font-family: 'Audiowide', cursive;
+}
+
+/* Main Content */
+.challenge-content {
+    border-bottom: 2px solid white;
+}
+
+.challenge-content h5 {
+    color: #28DF99;
+}
+
+.challenge-content h6 {
+    color: #3797A4;
+}
+
+.challenge-content p {
+    padding-left: 1%;
+}
+
+.challenge-content pre {
+    padding-left: 3%;
+}
+
+
+/* Notification */
+.notification-bar {
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: #111936;
+    border-left: 2px solid white;
+}
+
+.notification-bar-content {
+    margin-top: 15%;
+    font-family: 'Play', sans-serif;
+}
+
+.related button {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.blog-link {
+    color: white;
+}
+
+.blog-link:hover {
+    color: royalblue;
+}
+
+@media all and (max-width:640px)
+{
+    .navbar {
+        height: auto;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+    .sidebar {
+        height: 8%;
+        width: 0%;
+        border-right: none;
+    }
+
+    .notification-bar {
+        height: 0;
+        width: 0;
+        border-left: none;
+        
+    }
+    .rounded-circle {
+        width: 0px;
+        height: 0px;
+    }
+
+    .content {   
+        padding-top: 10%;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .challenge-title {
+        font-size: small;
+    }
+
+    li {
+        font-size: small;
+    }
+
+    p {
+        font-size: small;
+    }
+}
