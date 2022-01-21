@@ -101,7 +101,7 @@ a {
 
 
 .title {
-    font-family: 'Kalam', cursive;
+    font-family: 'Play', cursive;
     margin-top: 5%;
     color: white;
 }
@@ -138,19 +138,19 @@ a {
 
 .card:hover {
     top: -5px;
-    border: 3px solid #33FF00;
+    border: 3px solid #00FF66;
 }
 
 .htb {
-    background: linear-gradient(#c0392b,#8e44ad);
+    background: linear-gradient(#27299b,#051827);
 }
 
 .thm {
-    background: linear-gradient(#2980b9,#2c3e50)
+    background: linear-gradient(#1c92e0,#495868)
 }
 
 .event {
-    background: linear-gradient(#136a8a,#267871)
+    background: linear-gradient(#23718d,#267871)
 }
 
 /* Card End */
@@ -163,7 +163,7 @@ a {
 
 .page-link {
     color: white;
-    background: linear-gradient(#89253e,#3a6186);
+    background: linear-gradient(#360033,#0b8793);
 }
 
 .active {
