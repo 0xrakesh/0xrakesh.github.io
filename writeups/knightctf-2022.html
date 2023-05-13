@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser Title -->
+    <title>KnightCTF Reverse Writeups</title>
+    <!-- Browser Title End -->
+    
+    <meta description="author" content="Rakesh Kumar">
+    <meta description="writeup" content="writeup">
+    <link href="css/knightctf.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" href="../assets/icons/favicon_io/favicon-32x32.png">
+
+    <!-- Javascript -->
+    <script src="../js/script.js"></script>
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+          <div class="container mx-10">
+              <!-- Navbar Brand -->
+              <a class="navbar-brand" href="../index.html">Home</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span><img src="https://img.icons8.com/office/35/000000/menu--v3.png"/></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a class="navbar-item">HackTheBox</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="navbar-item">Tryhackme</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="navbar-item">Others</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+        </nav>
+    </header>
+    <section class="d-flex sidebar">
+        <div class="container">
+            <img class="container mx-auto my-5 px-3 d-block rounded-circle" src="../assets/proflle-kakashi.jpg">
+            <h2 class="text-center sidebar-content">Rakesh Kumar</h2>
+            <h6 class="text-center sidebar-content">Front-End Developer (Junior) & Reverse Engineer.</h6>
+            <a href="https://www.github.com/0xrakesh" target="_blank"><p class="text-center sidebar-content"><img class="social-media" src="../assets/icons/GitHub-Mark-Light-120px-plus.png">Github</p></a>
+            <a href="https://www.twitter.com/0xcyberhackz" target="_blank"><p class="text-center sidebar-content"><img class="social-media" src="../assets/icons/twitter.png">Twitter</p></a>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container content-main">
+            <!-- Writeup Title -->
+            <h2 class="text-center event-title my-5">KnightCTF  Reverse  Engineering <br/> Writeups</h2>
+            <h4>Hello hack3rs!!👋</h4>
+            <div id="flag_vault" class="container my-3 challenge-content">
+                <h5>The Flag Vault</h5>
+                <pre><img src='poc/KnightCTF/The Flag Vault/description.png '></pre>
+                <h5>Basic Info</h5>
+                <h6 >File command</h6>
+                <pre><img src='poc/KnightCTF/The Flag Vault/file.png'></pre>
+                <p>It's an ELF 64bit executable.</p>
+                <h6 >Strings command </h6>
+                <pre><img src='poc/KnightCTF/The Flag Vault/strings.png'></pre>
+                <p>There are some interesting strings and library calls ( strcmp ). So run it and see how it works and it ask us for the password, we give the password string and the output is wrong.</p>
+                <pre><img src='poc/KnightCTF/The Flag Vault/run.png '></pre>
+                <p>For further analysis, load the binary in gdb  and disassemble the main function </p>
+                <pre><img src='poc/KnightCTF/The Flag Vault/strcmp.png '></pre>
+                <p>Look at the main + 242 line instruction, it compare two strings. Let's set breakpoint at main+242 and examine the values. </p>
+                <pre><img src='poc/KnightCTF/The Flag Vault/breakpoint.png '></pre>
+                <p>Now run the program with some random string, here i used password as input.</p>
+                <pre><img src='poc/KnightCTF/The Flag Vault/breakpoint_hit.png '></pre>
+                <p>After hitting the strcmp instruction ,examine the two values. First one is the password and the second one is our input. 
+                Now run the binary with finded password.</p>
+                <pre><img src='poc/KnightCTF/The Flag Vault/flag.png '></pre>
+                <p>The Flag is KCTF{welc0me_t0_reverse_3ngineering} </p>
+
+            </div>
+            <div id="encoder" class="container my-3 challenge-content">
+                <h5>The Encoder</h5>
+                <pre><img src='poc/KnightCTF/The Encoder/description.png '></pre>
+                <h5>Basic Info</h5>
+                <h6 >File command</h6>
+                <pre><img src='poc/KnightCTF/The Encoder/file.png'></pre>
+                <p>It's an ELF 64bit executable and not stripped binary.</p>
+                <h6 >Strings command </h6>
+                <pre><img src='poc/KnightCTF/The Encoder/strings.png'></pre>
+                <p>Nothing interesting. Now run the binary and see how it works. It print welcome message and ask for plain text to encrypt ( the input length must within in 40 character. ) </p>
+                <pre><img src='poc/KnightCTF/The Encoder/run.png '></pre>
+                <p>Enter hello guys as input, it gives some numbers 🙄. They are given the encrypted flag, now we need to decrypt it.  </p>
+                <pre><img src='poc/KnightCTF/The Encoder/enc.png '></pre>
+                <p>Now enter the all printable character as input, it gives the encrypted value for corresponding input. Let's make a script which find the correct value of flag by its encrypt value. </p>
+                <pre><img src='poc/KnightCTF/The Encoder/script.png '></pre>
+                <p>For example the first encrypted value is 1412, the script find the index of 1412 in value variable and print the finded index value of alpha. Now run the script </p>
+                <pre><img src='poc/KnightCTF/The Encoder/flag.png '></pre>
+                <p>The Flag is KCTF{s1Mpl3_3Nc0D3r_1337}. </p> 
+            </div>
+            <div id="babyshark" class="container my-3 challenge-content">
+                <h5>Baby shark</h5>
+                <pre><img src='poc/KnightCTF/Baby shark/description.png '></pre>
+                <h5>Basic Info</h5>
+                <h6 >File command</h6>
+                <pre><img src='poc/KnightCTF/Baby shark/file.png'></pre>
+                <p>It is java archieve data (JAR). Now unzip the jar file and analysis the files. </p>
+                <pre><img src='poc/KnightCTF/Baby shark/tree.png '></pre>
+                <p>There is one audio.wav file, but there is nothing interesting. The flag.class contain nothing. So grep the all files , but there is no flag. Cat the string.class, it contain some base64 encode value. So decode it. </p>
+                <pre><img src='poc/KnightCTF/Baby shark/flag.png '></pre>
+                <p>Yeah!!! There is flag " KCTF{7H15_w@5_345Y_R16H7?} ". </p>
+            </div>
+            <div id="knight_vault" class="container my-3 challenge-content">
+                <h5>Knight Vault</h5>
+                <pre><img src='poc/KnightCTF/Knight Vault/description.png '></pre>
+                <h5>Basic Info</h5>
+                <h6 >File command</h6>
+                <pre><img src='poc/KnightCTF/Knight Vault/file.png'></pre>
+                <p>It's an ELF 64bit executable and not stripped binary.</p>
+                <h6 >Strings command </h6>
+                <pre><img src='poc/KnightCTF/Knight Vault/strings.png'></pre>
+                <p>Nothing interesting. Now run the binary and see how it works. It print hello message and ask for password.</p>
+                <pre><img src='poc/KnightCTF/Knight Vault/run.png '></pre>
+                <p>Enter 12345 as input, it gives wrong password. Load the binary in ghidra to analysis. Look at the main function, it take 
+                a input from user and modified the input by subtract 10 in given input. </p>
+                <pre><img src='poc/KnightCTF/Knight Vault/main.png '></pre>
+                <p>If modified value is equal to "A", it change into "*". Finally it check the modified input with some strings. Let's make 
+                the script, We have value which is compare with modified input. So adding 10 in compare value if the compare value is "*", then add "A" and 10. </p>
+                <pre><img src='poc/KnightCTF/Knight Vault/script.png '></pre>
+                <p>Finally it print the flag. Execute the script and check the flag is correct or wrong. </p>
+                <pre><img src='poc/KnightCTF/Knight Vault/flag.png '></pre>
+                <p>The Flag is KCTF{s0_y0u_g0t_mE_gOOd_jOOb_hApPy_hAcKiNg}</p>
+            </div>
+            <div id="switch_bank" class="container my-3 challenge-content">
+                <h5>Switch Bank</h5>
+                <pre><img src='poc/KnightCTF/Switch Bank/description.png '></pre>
+                <h5>Basic Info</h5>
+                <h6 >File command</h6>
+                <pre><img src='poc/KnightCTF/Switch Bank/file.png'></pre>
+                <p>It's an ELF 64bit executable and not stripped binary.</p>
+                <h6 >Strings command </h6>
+                <pre><img src='poc/KnightCTF/Switch Bank/strings.png'></pre>
+                <p>Nothing interesting. Now run the binary and see how it works. It print Knight Switch Bank message and ask for password.</p>
+                <pre><img src='poc/KnightCTF/Switch Bank/run.png '></pre>
+                <p>Enter 1234567890 as input, it gives wrong password. Load the binary in ghidra to analysis. Look at the main function. </p>
+                <pre><img src='poc/KnightCTF/Switch Bank/main.png '></pre>
+                <p>It take a input from user. There are one for loop and four if conditions,The for loop iterate every single character into if conditions. The First condition check if input is less than "A" or greater than "M", if it failed, it subtract 13 from input. Otherwise it goes to second if condition. The Second if condition check the input is less than 'a' or greater than 'm', if it failed, it subtract 13 from input. If the condition is true, it goes to third if condition. The Third if condition check the input is less than 'N' or greater than 'Z'. If the condition failed, it add 13 in input, if it true it goes to fourth if condition. The Fourth if condition check the input is less than 'n' or greater than 'z'. If the condition failed, it add 13 in input. Otherwise it add 32 in input. Finally it add 2 in modified input and check with some string. Let's make a script.</p>
+                <pre><img src='poc/KnightCTF/Switch Bank/script.png '></pre>
+                <p>We have the compare string, subtract 2 from the compare string. And write if condition as same as in the challenge binary, but change arithmetic operations like if the challenge add 13 in input, we have to subtract 13 from input ( Change the arithmetic signs ). Now run the script and check the output is correct or wrong.  </p>
+                <pre><img src='poc/KnightCTF/Switch Bank/flag.png '></pre>
+                <p>The output is KCTF{So_loh_ROT_iT_gOOd_jOOb}. Now run the challenge binary with the script output, but it gives wrong password. By guessing change "loh" into "YoU", now check it again. </p>
+                <p>Yeah!! This time the Flag is correct. The flag is KCTF{So_YoU_ROT_iT_gOOd_jOOb}</p> 
+            </div>
+            <!-- Writeup Title End -->
+                    
+        </div>
+        <div id="challenge" class="container my-3 challenge-content">
+            <!-- Writeup Content -->
+
+            
+            <!-- Writeup Content End -->
+        </div>
+    </section>
+    <section class="d-flex notification-bar">
+        <div class="container my-5 notification-bar-content">
+            <h6 class="my-5 px-2 text-center">Recent writeups</h6>
+
+            <!-- Recent Writups Link -->
+            
+            <a href="pin - ctflearn.html"><p class="text-center blog-link">Pin - CTFLearn</p></a>
+            <a href="tamilctf-sept-event.html"><p class="text-center blog-link">TamilCTF September</p></a>
+            
+            <!-- Recent Writeups Link End -->
+
+            <div class="container-fluid my-5 related">
+                <h6>Related:</h6>
+
+                <!-- Tags -->
+                
+                <button type="button" class="btn btn-secondary">Ghidra</button>
+                <button type="button" class="btn btn-secondary">Gdb</button>
+                <button type="button" class="btn btn-secondary">Reverse Engineering</button>
+
+                <!-- Tags End -->
+
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

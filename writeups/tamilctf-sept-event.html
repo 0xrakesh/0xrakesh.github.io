@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser Title -->
+    <title>TamilCTF September Event</title>
+    <!-- Browser Title End -->
+    
+    <meta description="author" content="Rakesh Kumar">
+    <meta description="writeup" content="writeup">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" href="../assets/icons/favicon_io/favicon-32x32.png">
+
+    <!-- Javascript -->
+    <script src="../js/script.js"></script>
+        
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+          <div class="container mx-10">
+              <!-- Navbar Brand -->
+              <a class="navbar-brand" href="../index.html">Home</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span><img src="https://img.icons8.com/office/35/000000/menu--v3.png"/></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a class="navbar-item">HackTheBox</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="navbar-item">Tryhackme</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="navbar-item">Others</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+        </nav>
+    </header>
+    <section class="d-flex sidebar">
+        <div class="container">
+            <img class="container mx-auto my-5 px-3 d-block rounded-circle" src="../assets/proflle-kakashi.jpg">
+            <h2 class="text-center sidebar-content">Rakesh Kumar</h2>
+            <h6 class="text-center sidebar-content">Front-End Developer (Junior) & Reverse Engineer.</h6>
+            <a href="https://www.github.com/0xrakesh" target="_blank"><p class="text-center sidebar-content"><img class="social-media" src="../assets/icons/GitHub-Mark-Light-120px-plus.png">Github</p></a>
+            <a href="https://www.twitter.com/0xcyberhackz" target="_blank"><p class="text-center sidebar-content"><img class="social-media" src="../assets/icons/twitter.png">Twitter</p></a>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container content-main">
+            <!-- Writeup Title -->
+            <h2 class="text-center event-title my-5">TamilCTF September Event</h2>
+            <!-- Writeup Title End -->
+                    
+        </div>
+        
+        <!-- Writeup Content -->
+        <div class="container content-main">
+            <p class="challenge-title">Reverse Engineering Challenges:</p>
+            <ul>
+                <a href="#digital_play"><li>Digital Play</li></a>
+                <a href="#eezy"><li>Eezy</li></a>
+                <a href="#guesser"><li>Guesser</li></a>
+                <a href="#unknown"><li>Unknown</li></a>
+                <a href="#i_m_ab"><li>Hey I'm AB.</li></a>
+                <a href="#obscure"><li>Obscure</li></a>
+                <a href="#foolme"><li>Fool</li></a>
+            </ul>
+        </div>
+        <div id="digital_play" class="container my-3 challenge-content">
+            <h5>Digital Play</h5>
+            <p>DESCRIPTION : My friend made this encryption circuit to encrypt the text. Could you help to decrypt that text.<br/>
+            AUTHOR : 0xrakesh<br/>
+            FILE : encrypt.dig, enc.txt.</p>
+            <p>Enc.txt<pre><img src="poc/tamilctf sept/digital/enc_txt.png"></pre></p>
+            <p>Encrypt.dig<pre><img src="poc/tamilctf sept/digital/digital_circuit.png"></pre>The Plain text is xor with key and inverse the even number plain text.</p>
+            <h6>Let make an decrypt script:</h6>
+            <ul>
+                <li>Inverse the even number encrypt text.</li>
+                <li>Change the binary number to integer number.</li>
+                <li>Xor the integer number with xor key (0x4d415253).</li>
+                <li>Then unpack the hex value with the help of struct module.</li>
+                <li>Finally change the byte text to string</li>
+            </ul>
+            <pre><img src="poc/tamilctf sept/digital/script.png"></pre>
+            <h6>Run the script</h6>
+            <pre><img src="poc/tamilctf sept/digital/run.png"></pre>
+            <p>Flag is TamilCTF{D1g1T_CiRCu1T5_aRe_AwE50Me}</p>
+        </div>
+        <div id="eezy" class="container my-3 challenge-content">
+            <h5>Eezy</h5>
+            <p>DESCRIPTION : Don't try to debug me :( . You can't bypass me. Lets see if you can.<br/>
+                AUTHOR : 0xrakesh<br/>
+                FILE : challenge</p>
+            <p>Basic Info:<pre><img src="poc/tamilctf sept/eezy/file.png"></pre></p>
+            <p>Interesting strings:<pre><img src="poc/tamilctf sept/eezy/strings.png"></pre></p>
+            <p>Run the binary:<pre><img src="poc/tamilctf sept/eezy/fake.png"></pre></p>
+            <h6>Ghidra</h6>
+            <p>Analysis the binary in ghidra. The main function:<pre><img src="poc/tamilctf sept/eezy/main.png"></pre></p>
+            <p>The program takes a flag and call the FUNC1234 function. The FUNC1234 function:<pre><img src="poc/tamilctf sept/eezy/func1.png"></pre></p>
+            <p>The FUNC1234 function check the length of flag.<br/>The Length of the flag is 0x1e (30). After this function , it call the FUNC1235 function.<br/>The FUNC1235 function: 
+            <pre><img src="poc/tamilctf sept/eezy/func2.png"></pre>
+            </p>
+            <p>The FUNC1235 function inverse the flag. And call the FUNC1236 function with argument of inversed flag.<br/>The FUNC1236 function:
+            <pre><img src="poc/tamilctf sept/eezy/func3.png">
+            </pre></p>
+            <p>The FUNC1236 function shuffle the flag. There are two flag, the first loop store even value of flag in new variable and the second loop store odd value of flag in new variable. And call the FUNC123 with the argument of new variable.<br/>The FUNC1237 function xor the shuffled flag with 0x35 and check with some values.
+            <pre><img src="poc/tamilctf sept/eezy/func4.png"></pre>
+            </p>
+            <h6>Lets make a script</h6>
+            <ul>                                    
+                <li>Xor the check value with 0x35.</li>
+                <li>Shuffle the xored value.</li>
+                <li>Inverse the value.</li>
+            </ul>
+            <pre><img src="poc/tamilctf sept/eezy/script.png"></pre>
+            <h6>Run the script:</h6>
+            <pre><img src="poc/tamilctf sept/eezy/flag.png"></pre>
+            <p>Flag is TamilCTF{W3lC0m3_T0_tAm1lCtF!}</p>
+        </div>
+        <div id="guesser" class="container my-3 challenge-content">
+            <h5>Guesser</h5>
+            <p>
+            DESCRIPTION : My friend make a secure login app. It contain the secret message. Can you break the app and get the secret message for me :/<br/>
+            AUTHOR : 0xrakesh<br/>
+            FILE : Guesser
+            </p>
+            <p>Basic Info:<pre><img src="poc/tamilctf sept/guesser/file.png"></pre></p>
+            <p>Strings:<pre><img src="poc/tamilctf sept/guesser/strings.png"></pre></p>
+            <p>Run the binary<pre><img src="poc/tamilctf sept/guesser/run_first.png"></pre>It ask for username and password.</p>
+            <h6>Open the file in DNSpy</h6>
+            <pre><img src="poc/tamilctf sept/guesser/dnspy_run.png"></pre>
+            <p>Every C# program start with main function.So Look at the main function<pre><img src="poc/tamilctf sept/guesser/main.png"></pre></p>
+            <p>It get username and password, then call the check function with argument of username and password.<pre><img src="poc/tamilctf sept/guesser/check.png"></pre></p>
+            <p>It check the length of username and password. The username's length must by 7 and the password's length must be 5. If it's equal, then it do some operation and check with some value. After the check function, it call the function_one function with the argument of user and pass.<pre><img src="poc/tamilctf sept/guesser/func1.png"></pre></p>
+            <p>Same as check function, it also do some operation with password and check with some value. And call the function_two function with the argument of username and password.<pre><img src="poc/tamilctf sept/guesser/func2.png"></pre>It check the username with some value. If it is equal, it print the congratulation message.</p>
+            <h6>Lets make a script:
+            <pre><img src="poc/tamilctf sept/guesser/script.png"></pre></h6>
+            <h6>Run the script<pre><img src="poc/tamilctf sept/guesser/run_script.png"></pre></h6>
+            <h6>Confirm the username and password is correct or not<pre><img src="poc/tamilctf sept/guesser/success_run.png"></pre></h6>
+            <p>Yeah!!!! The username and password are correct!!! :)</p>
+            <p>Flag is TamilCTF{K4kaR0t:G0kuU}</p>
+        </div>
+        <div id="unknown" class="container my-3 challenge-content">
+            <h5>Unknown</h5>
+            <p>
+                DESCRIPTION : Is this file a binary in disguise?<br/>
+                AUTHOR : 0xrakesh<br/>
+                FILE : challenge
+            </p>
+            <h6>Analysis the file</h6>
+            <p>file challenge</p>
+            <pre><img src="poc/tamilctf sept/unknown/file.png"></pre>
+            <p>strings challenge</p>
+            <p>&nbsp There is no interesting string in this binary.</p>
+            <p>readelf -S challenge</p>
+            <pre><img src="poc/tamilctf sept/unknown/pydata.png"></pre>
+            <p>The Challenge binary contain the pydata section. So it is python file that compilt to elf. So decompile this file by using pyinstxtractor.</p>
+            <pre>&nbsp pyintxtractor.py challenge</pre>
+            <p>It gives the python bytecode.</p>
+            <pre>&nbsp uncompyle6 challenge.pyc</pre>
+            <p>It gives the python file.</p>
+            <h6>Python Script</h6>
+            <pre><img src="poc/tamilctf sept/unknown/code.png"></pre>
+            <p>The lines are encode by bytearray and execute by using eval(). To decode the line, we just replace the eval() to print().</p>
+            <pre><img src="poc/tamilctf sept/unknown/script.png"></pre>
+            <h6>Run the script</h6>
+            <pre><img src="poc/tamilctf sept/unknown/output.png"></pre>
+            <h6>Lets make a script to decode</h6>
+            <pre><img src="poc/tamilctf sept/unknown/flag.png"></pre>
+            <h6>Output</h6>
+            <pre><img src="poc/tamilctf sept/unknown/flag_.png"></pre>
+            <h6>Check the output is correct or not</h6>
+            <pre><img src="poc/tamilctf sept/unknown/final.png"></pre>
+            <p>The flag is TamilCTF{aRe_r3v3rSe_eNgIneEr5_l3s5_tAl3nT4nT?}.</p>
+        </div>
+        <div id="i_m_ab" class="container my-3 challenge-content">
+            <h5>Hey I'm AB</h5>
+            <p>
+                DESCRIPTION : My phone got crashed and I took a backup of some important data.<br/>
+                AUTHOR : Abhi<br/>
+                FILE : android.ab
+            </p>
+            <h6>Basic Info</h6>
+            <p>
+                The .ab file is android backup file. Lets extract the file<br/>
+                (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" ; tail -c +25 backup.ab) | tar xfvz - 
+            <pre><img src="poc/tamilctf sept/heyimab/extract.png"></pre>
+            </p>
+            <h6>List out the files<pre><img src="poc/tamilctf sept/heyimab/tree.png"></pre></h6>
+            <h6>Cat the all files with grep<pre><img src="poc/tamilctf sept/heyimab/strings.png"></pre></h6>
+            <p>The flag is : TamilCTF{1_l0v3_y0u_AB}</p>
+        </div>
+        <div id="obscure" class="container my-3 challenge-content">
+            <h5>Obscure</h5>
+            <p>
+                DESCRIPTION : Be a nerd coder and little bit of hacker<br/>
+                AUTHOR : aidenpearce369<br/>
+                FILE : obscure
+            </p>
+            <h6>Basic Info</h6>
+            <p>&nbsp file reverseme</p>
+            <pre><img src="poc/tamilctf sept/obscure/file.png"></pre>
+            <p>
+                So it is a byte-code file from python 2.7.<br/>
+                Lets try to decompiling the file to its own python file by uncompyle6.<br/>
+                To decompile the file, just rename the reverseme to reverseme.pyc
+            </p>
+            <pre><img src="poc/tamilctf sept/obscure/uncompyle.png"></pre>
+            <h6>Lets look at the script</h6>
+            <pre><img src="poc/tamilctf sept/obscure/python_file.png"></pre>
+            <p>So in this python script an obfuscated output is produced from the string. And our string is a fake flag. But the output is produced from each characters in the flag. And there is an obfuscated value for the real flag, we have to just reverse it to its characters. By checking the output for the string "TamilCTF{" it gives the obfuscated value as "300e030d0d15072517" which is also present in real flag.</p>
+            <p>All we have to do is perform the obfuscation mechanism for each character and compare it with the real_flag , which is moreover a bruteforce attack.</p>
+            <h6>Lets make a script</h6>
+            <pre><img src="poc/tamilctf sept/obscure/script.png"></pre>
+            <h6>Run the script</h6>
+            <pre><img src="poc/tamilctf sept/obscure/output.png"></pre>
+            <p>The flag is TamilCTF{bRuTeF0rCe_1s_tHe_0nLy_F0rCe_2_bReAk__1n}</p>
+        </div>
+        <div id="foolme" class="container my-3 challenge-content">
+            <h5>Foolme</h5>
+            <p>
+                DESCRIPTION : Make a call :) , But it not a pwn challenge.<br/>
+                AUTHOR : 0xrakesh<br/>
+                FILE : foolme<br/>
+                HINT : Don't try automation. The flag will be meaningful text. Did you play my EeZY reverse challenge?
+            </p>
+            <h6>Basic info</h6>
+            <pre><img src="poc/tamilctf sept/foolme/file.png"></pre>
+            <p>Interesting string</p>
+            <pre><img src="poc/tamilctf sept/foolme/string.png"></pre>
+            <p>There is one interesting string ( TamilCTF{StRiNgs_C0mP4re5} )</p>
+            <h6>Run the binary</h6>
+            <pre><img src="poc/tamilctf sept/foolme/run_first.png"></pre>
+            <h6>Open the binary in binaryninja</h6>
+            <pre><img src="poc/tamilctf sept/foolme/main_bn.png"></pre>
+            <p>The main function call the sub_11a5 function and it does not return .</p>
+            <pre><img src="poc/tamilctf sept/foolme/sleep.png"></pre>
+            <p>The sub_11a5 function sleep for 1 second and exit the program. So we need to bypass the sub_11a5 function by convert the call instruction to nops .</p>
+            <pre>Step : Right click the call instruction -> Patch option -> convert to Nop.</pre>
+            <pre><img src="poc/tamilctf sept/foolme/patch.png"></pre>
+            <p>After the convert the call instruction to nops , just save the binay.</p>
+            <h6>Execute the patch binary</h6>
+            <pre><img src="poc/tamilctf sept/foolme/patch_run.png"></pre>
+            <p>It ask for passcode to get the flag. Then print Wrong Length and find the length first.</p>
+            <h6>Analysis the file in Ghidra</h6>
+            <pre><img src="poc/tamilctf sept/foolme/main_ghidra.png"></pre>
+            <p> It takes a user input and call the three function. The first function do some operation with user input and return the value.</p>
+            <pre><img src="poc/tamilctf sept/foolme/func1.png"></pre>
+            <p>The second function inverse the user input and return the value.</p>
+            <pre><img src="poc/tamilctf sept/foolme/check.png"></pre>
+            <p>The third function ( FUN_0010152b ) do some operation as same as first functionand finally the value is compare with TamilCTF{StRiNgs_C0mP4re5} .If it’s equal ,it print “Correct Flag” , otherwise it print “Wrong Flag”.</p>
+            <h6>Lets make a script</h6>
+            <ul>
+                <li>We have the compare string (TamilCTF{StRiNgs_C0mP4re5}) , just reverse the operation.</li>
+                <li>Change the string into integer and store list.</li>
+                <li>Reverse the operation done in third function and return the inverse value.</li>
+                <li>Reverse the First function operation and print the flag as string.</li>
+            </ul>
+            <pre><img src="poc/tamilctf sept/foolme/script_py.png"></pre>
+            <h6>Run the script</h6>
+            <pre><img src="poc/tamilctf sept/foolme/script.png"></pre>
+            <p>1.As we already know that the flag is meaningful text.<br/>
+                2.And Hint is “Did you play my EeZY reverse challenge?”.<br/>
+                r3vErrE ---> r3vErsE<br/>
+                eZP ----> eZY</p>
+            <p>15_tH15_eZY_r3vErsE_cHalL?</p>
+            <h6>Test the passcode</h6>
+            <pre><img src="poc/tamilctf sept/foolme/success.png"></pre>
+            <p>The flag is TamilCTF{15_tH15_eZY_r3vErsE_cHalL?}</p><br/>
+            <h4 class="text-center">HAPPY HACKING !!!</h4>
+        </div>
+
+            
+        <!-- Writeup Content End -->
+        </div>
+    </section>
+    <section class="d-flex notification-bar">
+        <div class="container my-5 notification-bar-content">
+            <h6 class="my-5 px-2 text-center">Recent writeups</h6>
+
+            <!-- Recent Writups Link -->
+            
+            <a href="pin - ctflearn.html"><p class="text-center blog-link">Pin - CTFLearn</p></a>
+            <a href="youcantc - htb.html"><p class="text-center blog-link">You Cant C - HTB</p></a>
+            
+            <!-- Recent Writeups Link End -->
+
+            <div class="container-fluid my-5 related">
+                <h6>Related:</h6>
+
+                <!-- Tags -->
+                
+                <button type="button" class="btn btn-secondary">Reverse Engineering</button>
+                <button type="button" class="btn btn-secondary">Digital Circuit</button>
+                <button type="button" class="btn btn-secondary">Logic Gates</button>
+                <button type="button" class="btn btn-secondary">Python Bytecode</button>
+                <button type="button" class="btn btn-secondary">Android</button>
+                <!-- Tags End -->
+
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
