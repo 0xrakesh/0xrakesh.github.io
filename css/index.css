@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
+:root {
+    background-color: #030118;
+    color: white;
+    font-family: 'Kite One', sans-serif;
+}
+
+body {
+    background-image: url(../assets/body-bgd.jpg);
+    background-attachment: fixed;
+    color: white;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+/* Navbar Config */
+
+.navbar {
+    background-color: #0a0827;
+    height: 8vh;
+    display: flex;
+    border-bottom: 2px solid white;
+}
+
+.navbar a {
+    color: white;
+    padding: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.navbar-item {
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Profile bar */
+.profile-bar {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20%;
+    z-index: 1;
+    margin-top: 3%;
+    overflow: hidden;
+    position: fixed;
+    background-image: url(../assets/body-bgd.jpg);
+    background-attachment: fixed;
+
+    border-right: 2px solid white;
+}
+
+.profile-content {
+    padding-top: 25%;
+}
+
+.profile-image {
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 223, 252);
+}
+
+.profile-image:hover {
+    border: 2px solid rgb(241, 255, 46);
+}
+
+.name {
+    font-family: 'Play', sans-serif;
+    color: white;
+}
+
+.social-media {
+    width: 20px;
+    height: 20px;
+    padding-right: 2px;
+}
+
+/* Profile bar end */
+
+/* Content */
+
+.content {
+    margin-left: 25%;
+    margin-right: 5%;
+}
+
+
+
+.title {
+    font-family: 'Play', cursive;
+    margin-top: 5%;
+    color: white;
+}
+
+.content-main {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+/* Content end */
+
+/* Card */
+
+.blog-link {
+    text-decoration: none;
+    color: white;
+}
+
+.blog-link:hover {
+    color: white;
+}
+
+.card {
+    border: 2px solid #FBFFFF;
+    font-family: 'Play', sans-serif;
+    color: white;
+}
+
+
+.card-subtitle {
+    color: #E6FB04;
+    font-family: 'Play', cursive;
+}
+
+.card:hover {
+    top: -5px;
+    border: 3px solid #00FF66;
+}
+
+.htb {
+    background: linear-gradient(#27299b,#051827);
+}
+
+.thm {
+    background: linear-gradient(#1c92e0,#495868)
+}
+
+.event {
+    background: linear-gradient(#23718d,#267871)
+}
+
+/* Card End */
+
+
+/* Pagination */
+.pagination {
+    justify-content: center;
+}
+
+.page-link {
+    color: white;
+    background: linear-gradient(#360033,#0b8793);
+}
+
+.active {
+    color: black;
+}
+
+.page-link:hover {
+    color: #E6FB04;
+    top: -2;
+}
+
+/* Pagination End */
+
+
+
+@media all and ( max-width : 640px )
+{
+    :root {
+        background-image: url(../assets/body-bgd.jpg);
+    }
+    .navbar {
+        height: auto;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+    .profile-bar {
+        top: 0;
+        left: 0;
+        height: 0%;
+        width: 0%;
+    }
+
+    .pagination {
+        padding-bottom: 8%;
+    }
+
+
+    .content-main {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+    .content {
+        margin-top: 10%;
+        margin-left: 5%;
+    }
+
+}
