@@ -5,111 +5,302 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rakesh Kumar</title>
-    <meta name="description" content="rakesh kumar website">
-    <meta name="authour" content="Rakesh Kumar">
-    <meta name="about" content="writeups">
-
-    <!-- Styles -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="css/aos.min.css" rel="stylesheet">
-    <link href="css/swiper.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon_io/favicon-32x32.png">
-
-    <!-- Javascript -->
-    <script src="js/script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
 </head>
 <body>
-  <header>
-      <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
-        <div class="container mx-10">
-            <!-- Navbar Brand -->
-            <a class="navbar-brand" href="#">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span><img src="https://img.icons8.com/office/35/000000/menu--v3.png"/></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="navbar-item">HackTheBox</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="navbar-item">Tryhackme</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="navbar-item">Others</a>
-                    </li>
-                </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#">Rakesh Kumar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><img src="assets/menu.png" alt=""></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="#">Project</a>
+              </li>
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="#">Skill</a>
+              </li>
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="#">About Me</a>
+              </li>
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+      <!-- Home -->
+    <div id="home">
+        <div class="container  d-flex my-5 hero-content">
+            <div class="content">
+                <h1 class="hero-title">Hello</h1>
+                <h5 class="hero-desc">I'm <gradient>Rakesh Kumar</gradient>, a versatile professional skilled in backend development, UI/UX design, cybersecurity, and front-end development. As a freelancer, I bring innovative solutions to your projects.Let's create something extraordinary together. Contact me today to make your vision to reality!</h5>
+                <button class="button resume">RESUME</button>
+            </div>
+            <div class="hero-image">
+                <img src="assets/heroimage.jpg" class="heroImage" alt="">
             </div>
         </div>
-      </nav>
-  </header>
-  <section class="profile-bar d-flex">
-    <div class="container my-5">
-      <img class="container profile-image mx-auto my-5 d-block" src="assets/kakashi-round.png">
-      <h2 class="text-center name">Rakesh Kumar</h2>
-      <p class="text-center name">Web developer, UI/UX Designer & Reverse Engineer.</p>
-      <a href="https://www.github.com/0xrakesh" target="_blank"><p class="text-center name"><img src="assets/icons/GitHub-Mark-Light-120px-plus.png" class="social-media">Github</p></a>      
-      <a href="https://www.twitter.com/0xcyberhackz" target="_blank"><p class="text-center name"><img src="assets/icons/twitter.png" class="social-media">Twitter</p></a>
     </div>
-  </section>
-  <section class="content d-flex">
-    <div class="container content-main">
-      <h3 class="text-center title">Recent writeups</h3>
 
-    
-      <a href="writeups/knightctf-2022.html" class="blog-link">
-        <div class="card mx-5 my-5 thm">
-        <div class="card-body">
-          <h5 class="card-title">KnightCTF</h5>
-          <h6 class="card-subtitle mb-2">CTF Event</h6>
-          <p class="card-text">Reverse Engineering Writeups </p>
-        </div>
-        </div>
-      </a>
+    <!-- Project -->
+    <div id="project">
+        <div class="container">
+            <div class="project-title text-center">
+                <button class="button project-button">PROJECT</button>
+            </div>
+            <div class="project-box">
 
-      <a href="writeups/reykjavik - ctflearn.html" class="blog-link">
-        <div class="card mx-5 my-5 htb">
-        <div class="card-body">
-          <h5 class="card-title">Reykjavik</h5>
-          <h6 class="card-subtitle mb-2">CTF Learn</h6>
-          <p class="card-text">Description : Good beginning Reversing challenge - jump into gdb and start looking for the flag!</p>
-        </div>
-        </div>
-      </a>
+                <!-- Development -->
+                <div class="dev box">
+                    <h4 class="p-title">Application</h4>
+                    
+                    <!-- Project Box -->
+                    <div class="p-box container my-3 d-flex">
+                        <div class="bg d-flex">
+                            <img src="assets/adobe-photoshop.png" class="project-logo" alt="">
+                            <div class="p-desc">
+                                <h5 class="proj-title"><gradient>ChatBot</gradient></h5>
+                                <p class="proj-desc">A Friendly chatbot with simple conversation like hi, hello, etc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Box -->
+                    <!-- Project Box -->
+                    <div class="p-box container my-3 d-flex">
+                        <div class="bg d-flex">
+                            <img src="assets/adobe-photoshop.png" class="project-logo" alt="">
+                            <div class="p-desc">
+                                <h5 class="proj-title"><gradient>Message Webapp</gradient></h5>
+                                <p class="proj-desc">A message app like whatsapp mixed with music player.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Box -->
+                    <!-- Project Box -->
+                    <div class="p-box container my-3 d-flex">
+                        <div class="bg d-flex">
+                            <img src="assets/adobe-photoshop.png" class="project-logo" alt="">
+                            <div class="p-desc">
+                                <h5 class="proj-title"><gradient>ChatBot</gradient></h5>
+                                <p class="proj-desc">A Friendly chatbot with simple conversation like hi, hello, etc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Box -->
 
-      <a href="writeups/youcantc - htb.html" class="blog-link">
-        <div class="card mx-5 my-5 event">
-        <div class="card-body">
-          <h5 class="card-title">You Cant C</h5>
-          <h6 class="card-subtitle mb-2">HackTheBox</h6>
-          <p class="card-text">Description : Can you see me?</p>
-        </div>
-        </div>
-      </a>
+                </div>
 
-      <nav aria-label="Page navigation">
-        <ul class="pagination">
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"> <a class="page-link" href="page2/">2</a></li>
-          <li class="page-item"><a class="page-link" href="page3/">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
+                <!-- UI/UX Design -->
+                <div class="uiux box">
+                    <h4 class="p-title">UI/UX Design</h4>
+
+                    <!-- Project Box -->
+                    <div class="p-box container my-3 d-flex">
+                        <div class="bg d-flex">
+                            <img src="assets/adobe-photoshop.png" class="project-logo" alt="">
+                            <div class="p-desc">
+                                <h5 class="proj-title"><gradient>Intallo</gradient></h5>
+                                <p class="proj-desc">A message app with integrated artificial intelligence that assist us.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Box -->
+
+                    <!-- Project Box -->
+                    <div class="p-box container my-3 d-flex">
+                        <div class="bg d-flex">
+                            <img src="assets/adobe-photoshop.png" class="project-logo" alt="">
+                            <div class="p-desc">
+                                <h5 class="proj-title"><gradient>Genii</gradient></h5>
+                                <p class="proj-desc">A message app with integrated artificial intelligence that assist us.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Box -->
+
+                    <!-- Project Box -->
+                    <div class="p-box container my-3 d-flex">
+                        <div class="bg d-flex">
+                            <img src="assets/adobe-photoshop.png" class="project-logo" alt="">
+                            <div class="p-desc">
+                                <h5 class="proj-title"><gradient>Eco Me</gradient></h5>
+                                <p class="proj-desc">A Shopping App used to brought vegetable and diary product from nearby shops.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Box -->
+                </div>
+
+                <!-- 3D Model -->
+                <div class="model box last-box">
+                    <h4 class="p-title">3D Models</h4>
+
+                    <!-- Project Box -->
+                    <div class="p-box container my-3 d-flex">
+                        <div class="bg d-flex">
+                            <img src="assets/adobe-photoshop.png" class="project-logo" alt="">
+                            <div class="p-desc">
+                                <h5 class="proj-title"><gradient>NodeMCU Cover</gradient></h5>
+                                <p class="proj-desc">A 3D Model of NodeMCU Cover ESP8266. We can use it to cover the board.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Box -->
+
+                    <!-- Project Box -->
+                    <div class="p-box container my-3 d-flex">
+                        <div class="bg d-flex">
+                            <img src="assets/adobe-photoshop.png" class="project-logo" alt="">
+                            <div class="p-desc">
+                                <h5 class="proj-title"><gradient>A Simple House</gradient></h5>
+                                <p class="proj-desc">A 3D Model of simple house. This is first project I tried in blender.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Box -->
+
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
- 
-  
-    
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script><!-- Bootstrap framework -->
-  <script src="js/swiper.min.js"></script><!-- Swiper for image and text sliders -->
-  <script src="js/aos.js"></script><!-- AOS on Animation Scroll -->
-  <script src="js/script.js"></script>  <!-- Custom scripts -->
+
+    <!-- Skill -->
+    <div id="skill">
+        <div class="container">
+            <div class="skill-title text-center">
+                <button class="button skill-button">SKILL</button>
+            </div>
+            <div class="skill-box">
+                <div class="row d-flex container">
+                    <img src="assets/html.png" class="steck" alt="">
+                    <img src="assets/css-3.png" class="steck" alt="">
+                    <img src="assets/java-script.png" class="steck" alt="">
+                    <img src="assets/bootstrap.png" class="steck" alt="">
+                    <img src="assets/python.png" class="steck" alt="">
+                    <img src="assets/nodejs.png" class="steck" alt="">
+                    <img src="assets/mongodb.png" class="steck" alt="">
+                    <img src="assets/letter-c.png" class="steck" alt="">
+                    <img src="assets/rust.png" class="steck" alt="">
+                    <img src="assets/java.png" class="steck" alt="">
+                    <img src="assets/adobe-photoshop.png" class="steck" alt="">
+                    <img src="assets/illustrator.png" class="steck" alt="">
+                    <img src="assets/figma.png" class="steck" alt="">
+                    <img src="assets/xd.png" class="steck" alt="">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- About Me -->
+    <div id="about">
+        <div class="container">
+            <div class="about-title text-center">
+                <button class="button about-button">ABOUT ME</button>
+            </div>
+            <div class="container sss">
+                <div class="about-box my-5">
+                    <div class="output text-center">
+                        <button class="button output-btn text-center">OUTPUT</button>
+                        <p class="command-output">Rakesh@Developer ><blink id="display-cmd"> |</blink> </p>
+                        <p class="command-output" id="output"></p>
+                    </div>
+                    <div class="help-input">
+                        <div class="help text-center">
+                            <button class="button output-btn">COMMAND</button>
+                            <div class="command-help text-center">
+                                <button class="button help-btn text-center" onclick="processb('whoami')">Whoami</button>
+                                <button class="button help-btn text-center" onclick="processb('conquest')" >Conquest</button>
+                                <button class="button help-btn text-center" onclick="processb('works')">Works</button>
+                            </div>
+                            <div class="command-help">
+                                <button class="button help-btn text-center" onclick="processb('writeups')">Writeups</button>
+                                <button class="button help-btn text-center" onclick="processb('contact')">Contact</button>
+                            </div>
+                        </div>
+                        <div class="input text-center">
+                            <button class="button output-btn">INPUT</button>
+                            <p class="command-output cmd-input">Enter the command : <input class="cmd" type="text" name="command" id="cmd"></p>
+                            <button type="submit" onclick="process()" class="button process-btn">Process</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center desc">Enter the command in the input panel (or) click the command in the command panel to see the output of the command.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact">
+        <div class="container">
+            <div class="contact-title text-center">
+                <button class="button contact-button">CONTACT</button>
+            </div>
+            <div class="container my-5 contact-content">
+                <div class="contact-image">
+                    <img src="https://wallpapers.com/images/featured/murjp1nk4lp1idlt.jpg" class="contact-thumb" alt="">
+                </div>
+                <div class="form">
+                    <h4 class="form-input-title">Name</h3>
+                    <input type="text" name="username" class="form-input" />
+                    <h4 class="form-input-title">Email</h3>
+                    <input type="email" name="email" class="form-input" />
+                    <h4 class="form-input-title">Message</h3>
+                    <input type="text" name="message" class="form-input" />
+                    <div class="text-center">
+                        <button class="button submit-button">SUMBIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content d-flex">
+            <div class="media">
+                <h5 class="media-title">Social Media</h5>
+                <div class="d-flex">
+                    <img src="assets/ig.png" class="logo" alt="">
+                    <p class="links"> 0xrakesh</p>
+                </div>
+                <div class="d-flex">
+                    <img src="assets/linked.png" class="logo" alt="">
+                    <p class="links"> Rakesh Kumar</p>
+                </div>
+            </div>
+            <div class="media">
+                <h5 class="media-title">Professional Media</h5>
+                <div class="d-flex">
+                    <img src="assets/git.png" class="logo" alt="">
+                    <p class="links extra"> 0xrakesh</p>
+                </div>
+                <div class="d-flex">
+                    <img src="assets/upwork.png" class="logo" alt="">
+                    <p class="links extra"> Rakesh Kumar</p>
+                </div>
+            </div>
+            <div class="media">
+                <h5 class="media-title">Contact</h5>
+                <div class="d-flex">
+                    <img src="assets/gmail.png" class="logo" alt="">
+                    <p class="links extra">0xrakeshkumar@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Bundle Javascript -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>
